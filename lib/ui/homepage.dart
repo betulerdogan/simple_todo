@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_todo/widgets.dart';
 
@@ -18,18 +19,43 @@ class _HomepageState extends State<Homepage> {
             vertical: 32.0,
           ),
           color: Color(0xFFF6F6F6),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
             children: [
-              Container(
-                margin: EdgeInsets.only(
-                  bottom: 32.0,
-                ),
-                child: Image(
-                  image: AssetImage('assets/images/logo.png'),
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      bottom: 32.0,
+                    ),
+                    child: Image(
+                      image: AssetImage('assets/images/logo.png'),
+                    ),
+                  ),
+                  TaskCardWidget(
+                    title: "Get Started!",
+                    desc:
+                        "Hello User! Welcome to Simple_ToDo app, this is default task that you can edit or delete to start using the app.",
+                  ),
+                ],
               ),
-              TaskCardWidget(),
+              Positioned(
+                bottom: 0.0,
+                right: 0.0,
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF734FE),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Image(
+                    image: AssetImage(
+                      "assets/images/add_icon.png",
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
